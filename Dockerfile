@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
 
-RUN python3 -m venv /venv && source /venv/bin/activate
+RUN python3 -m venv /venv && . /venv/bin/activate
 
 RUN pip install --upgrade pip
 
