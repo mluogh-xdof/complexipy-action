@@ -2,11 +2,11 @@ FROM ubuntu:latest
 
 RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
 
-RUN python3 -m venv /venv && . /venv/bin/activate
+RUN python3 -m venv /venv
 
-RUN pip install --upgrade pip
+RUN /venv/bin/pip install --upgrade pip
 
-RUN pip install complexipy==2.1.1
+RUN /venv/bin/pip install complexipy==2.1.1
 
 COPY entrypoint.sh /entrypoint.sh
 
