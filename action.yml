@@ -35,3 +35,6 @@ runs:
     - ${{ inputs.details }}
     - ${{ inputs.quiet }}
     - ${{ inputs.sort }}
+branding:
+  icon: "check-circle"
+  color: "purple"
