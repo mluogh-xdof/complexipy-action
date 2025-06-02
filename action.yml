@@ -30,11 +30,11 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.paths }}
-    - ${{ inputs.max_complexity }}
-    - ${{ inputs.output }}
-    - ${{ inputs.details }}
-    - ${{ inputs.quiet }}
-    - ${{ inputs.sort }}
+    - --max-complexity ${{ inputs.max_complexity }}
+    - --output ${{ inputs.output }}
+    - --details ${{ inputs.details }}
+    - --quiet ${{ inputs.quiet }}
+    - --sort ${{ inputs.sort }}
 branding:
   icon: "check-circle"
   color: "purple"

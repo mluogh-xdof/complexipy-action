@@ -1,12 +1,6 @@
-FROM ubuntu:latest
+FROM python:3.12-slim
 
-RUN apt-get update && apt-get install -y python3 python3-pip python3-venv
-
-RUN python3 -m venv /venv
-
-RUN /venv/bin/pip install --upgrade pip
-
-RUN /venv/bin/pip install complexipy==2.1.1
+RUN pip install complexipy==2.1.1
 
 COPY entrypoint.sh /entrypoint.sh
 
