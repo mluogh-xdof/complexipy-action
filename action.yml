@@ -34,7 +34,7 @@ runs:
     - ${{ inputs.output == 'true' && '-o' || '' }}
     - ${{ inputs.details == 'low' && '-d low' || '' }}
     - ${{ inputs.quiet == 'true' && '-q' || '' }}
-    - -s ${{ inputs.sort }}
+    - ${{ inputs.sort == 'asc' && '-s asc' || inputs.sort == 'desc' && '-s desc' || inputs.sort == 'name' && '-s name' || '' }}
 branding:
   icon: "check-circle"
   color: "purple"
