@@ -12,8 +12,8 @@ jobs:
         id: complexipy
         with:
           paths: |
-            .
-            ./.github
+            "."
+            ".github"
           max_complexity: 15
           output: false
           details: 'normal'
