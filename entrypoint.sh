@@ -6,6 +6,11 @@ files=$(echo "$1" | tr '\n' ' ')
 
 echo "Files: $files"
 
+current_dir=$(pwd)
+echo "Current directory: $current_dir"
+
+ls -la "$current_dir"
+
 output_file=""
 if [ "$3" = "true" ]; then
     output_file="-o"
