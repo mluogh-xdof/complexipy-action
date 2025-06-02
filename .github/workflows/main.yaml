@@ -11,7 +11,10 @@ jobs:
         uses: ./
         id: complexipy
         with:
-          paths: '.'
+          paths: |
+            .
+            .github/workflows/main.yaml
+            .github/workflows/main.yaml
           max_complexity: 15
           output: false
           details: 'normal'
