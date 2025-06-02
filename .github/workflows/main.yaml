@@ -13,8 +13,8 @@ jobs:
         with:
           paths: |
             .
-            .github
-            .github/workflows
+            ./.github
+            ./.github/workflows
           max_complexity: 15
           output: false
           details: 'normal'
