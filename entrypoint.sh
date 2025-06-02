@@ -1,7 +1,5 @@
 #!/bin/sh -l
 
-echo "Running complexipy with arguments: $@"
-
 files=$(echo $1 | tr '\n' ' ')
 
 output_file=""
