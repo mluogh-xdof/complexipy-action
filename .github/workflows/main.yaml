@@ -1,0 +1,19 @@
+on: [push]
+
+jobs:
+  complexipy_job:
+    runs-on: ubuntu-latest
+    name: A job to calculate the cognitive complexity of Python files
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Complexipy action step
+        uses: ./
+        id: complexipy
+        with:
+          paths: '.'
+          max_complexity: 15
+          output: false
+          details: 'normal'
+          quiet: false
+          sort: 'asc'
