@@ -2,6 +2,10 @@
 
 echo "Running complexipy with arguments: $@"
 
+files=$(echo "$1" | tr '\n' ' ')
+
+echo "Files: $files"
+
 output_file=""
 if [ "$3" = "true" ]; then
     output_file="-o"
@@ -26,4 +30,4 @@ elif [ "$6" = "name" ]; then
     sort="-s name"
 fi
 
-complexipy "$1" -c "$2" $output_file $details $quiet $sort
+complexipy "$files" -c "$2" $output_file $details $quiet $sort
