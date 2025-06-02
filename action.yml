@@ -32,9 +32,9 @@ runs:
     - ${{ inputs.paths }}
     - -c ${{ inputs.max_complexity }}
     - ${{ inputs.output == 'true' && '-o' || '' }}
-    - -d "${{ inputs.details }}"
+    - ${{ inputs.details == 'low' && '-d low' || '' }}
     - ${{ inputs.quiet == 'true' && '-q' || '' }}
-    - -s "${{ inputs.sort }}"
+    - -s ${{ inputs.sort }}
 branding:
   icon: "check-circle"
   color: "purple"
