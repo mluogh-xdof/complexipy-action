@@ -2,14 +2,7 @@
 
 echo "Running complexipy with arguments: $@"
 
-files=$(echo "$1" | tr '\n' ' ')
-
-echo "Files: $files"
-
-current_dir=$(pwd)
-echo "Current directory: $current_dir"
-
-ls -la "$current_dir"
+files=$(echo $1 | tr '\n' ' ')
 
 output_file=""
 if [ "$3" = "true" ]; then
@@ -35,4 +28,4 @@ elif [ "$6" = "name" ]; then
     sort="-s name"
 fi
 
-complexipy "$files" -c "$2" $output_file $details $quiet $sort
+complexipy $files -c "$2" $output_file $details $quiet $sort
