@@ -31,9 +31,9 @@ runs:
   args:
     - ${{ inputs.paths }}
     - -c ${{ inputs.max_complexity }}
-    - -o ${{ inputs.output }}
+    - ${{ inputs.output == 'true' && '-o' || '' }}
     - -d ${{ inputs.details }}
-    - -q ${{ inputs.quiet }}
+    - ${{ inputs.quiet == 'true' && '-q' || '' }}
     - -s ${{ inputs.sort }}
 branding:
   icon: "check-circle"
