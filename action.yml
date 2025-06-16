@@ -2,31 +2,31 @@ name: complexipy
 description: Calculate the cognitive complexity of Python files, written in Rust.
 inputs:
   paths:
-    description: Paths to the directories or files to analyze, it can be a local paths or a git repository URL.
+    description: Paths to analyze. Can be local paths or a git repository URL.
     required: true
     default: ${{ github.workspace }}
   output_csv:
-    description: Output the results to a CSV file.
+    description: Generate results in a CSV file.
     required: false
-    default: false
+    default: 'false'
   output_json:
-    description: Output the results to a JSON file.
+    description: Generate results in a JSON file.
     required: false
-    default: false
+    default: 'false'
   ignore_complexity:
-    description: Ignore complexity threshold and show all functions
+    description: Ignore complexity threshold and show all functions. By default, complexipy will fail if a function exceeds a certain complexity.
     required: false
-    default: false
+    default: 'false'
   details:
-    description: Specify how detailed should be output, it can be 'low' or 'normal'. Default is 'normal'.
+    description: 'Output detail level (`low` or `normal`).'
     required: false
     default: "normal"
   quiet:
-    description: Suppress the output to the console.
+    description: Suppress console output.
     required: false
-    default: false
+    default: 'false'
   sort:
-    description: Sort the output by complexity, it can be 'asc', 'desc' or 'name'. Default is 'asc'.
+    description: 'Sort results by complexity (`asc`, `desc`, or `name`).'
     required: false
     default: "asc"
 runs:
