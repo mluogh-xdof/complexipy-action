@@ -15,8 +15,3 @@ jobs:
             .
             .github/
             .github/workflows/
-          max_complexity: 15
-          output: false
-          details: 'normal'
-          quiet: false
-          sort: 'asc'

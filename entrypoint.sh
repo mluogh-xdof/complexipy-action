@@ -2,9 +2,19 @@
 
 files=$(echo $1 | tr '\n' ' ')
 
-output_file=""
+ignore_complexity=""
+if [ "$2" = "true" ]; then
+    ignore_complexity="-i"
+fi
+
+output_csv=""
+if [ "$2" = "true" ]; then
+    output_csv="-c"
+fi
+
+output_json=""
 if [ "$3" = "true" ]; then
-    output_file="-o"
+    output_json="-j"
 fi
 
 details="-d normal"
@@ -26,4 +36,4 @@ elif [ "$6" = "name" ]; then
     sort="-s name"
 fi
 
-complexipy $files -c "$2" $output_file $details $quiet $sort
+complexipy $files $ignore_complexity $output_csv $output_json $details $quiet $sort

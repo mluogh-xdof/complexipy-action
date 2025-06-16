@@ -5,12 +5,16 @@ inputs:
     description: Paths to the directories or files to analyze, it can be a local paths or a git repository URL.
     required: true
     default: ${{ github.workspace }}
-  max_complexity:
-    description: The maximum complexity allowed per file, set this value as 0 to set it as unlimited. Default is 15.
-    required: false
-    default: 15
-  output:
+  output_csv:
     description: Output the results to a CSV file.
+    required: false
+    default: false
+  output_json:
+    description: Output the results to a JSON file.
+    required: false
+    default: false
+  ignore_complexity:
+    description: Ignore complexity threshold and show all functions
     required: false
     default: false
   details:
@@ -30,8 +34,9 @@ runs:
   image: 'Dockerfile'
   args:
     - ${{ inputs.paths }}
-    - ${{ inputs.max_complexity }}
-    - ${{ inputs.output }}
+    - ${{ inputs.ignore_complexity }}
+    - ${{ inputs.output_csv }}
+    - ${{ inputs.output_json }}
     - ${{ inputs.details }}
     - ${{ inputs.quiet }}
     - ${{ inputs.sort }}
