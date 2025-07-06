@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Check Python Code Complexity
-      uses: rohaquinlop/complexipy-action@v2
+      uses: rohaquinlop/complexipy-action@v3
       with:
         paths: '.'  # Analyze the entire repository
         ignore_complexity: false # Set to true to ignore complexity checks
@@ -41,7 +41,7 @@ jobs:
 ### Basic Usage
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v2
+- uses: rohaquinlop/complexipy-action@v3
   with:
     paths: '.'
 ```
@@ -49,7 +49,7 @@ jobs:
 ### Ignore Complexity Threshold
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v2
+- uses: rohaquinlop/complexipy-action@v3
   with:
     paths: './src'
     ignore_complexity: true
@@ -58,7 +58,7 @@ jobs:
 ### Generate CSV Report
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v2
+- uses: rohaquinlop/complexipy-action@v3
   with:
     paths: '.'
     output_csv: true
@@ -66,7 +66,7 @@ jobs:
 
 ### Generate JSON Report
 ```yaml
-- uses: rohaquinlop/complexipy-action@v2
+- uses: rohaquinlop/complexipy-action@v3
   with:
     paths: '.'
     output_json: true
@@ -75,7 +75,7 @@ jobs:
 ### Analyze Specific Directory with Low Detail Output
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v2
+- uses: rohaquinlop/complexipy-action@v3
   with:
     paths: './src/python'
     details: 'low'
