@@ -23,15 +23,17 @@ jobs:
 
 ## Inputs
 
-| Input               | Description                                                                                                                      | Required | Default                   |
-| ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------- |
-| `paths`             | Paths to analyze. Can be local paths or a git repository URL.                                                                    | No      | `""` |
-| `ignore_complexity` | Ignore complexity threshold and show all functions. By default, complexipy will fail if a function exceeds a certain complexity. | No       | `false`                   |
-| `output_csv`        | Generate results in a CSV file.                                                                                                  | No       | `false`                   |
-| `output_json`       | Generate results in a JSON file.                                                                                                 | No       | `false`                   |
-| `details`           | Output detail level (`low` or `normal`).                                                                                         | No       | `normal`                  |
-| `quiet`             | Suppress console output.                                                                                                         | No       | `false`                   |
-| `sort`              | Sort results by complexity (`asc`, `desc`, or `name`).                                                                           | No       | `asc`                     |
+| Input                    | Description                                                                                       |
+| ------------------------ | ------------------------------------------------------------------------------------------------- |
+| `paths`                  | Paths to analyze. Can be local paths or a git repository URL. If not provided, uses pyproject.toml configuration. |
+| `exclude`                | Paths to the directories or files to exclude.                                                     |
+| `max_complexity_allowed` | Max complexity allowed per function.                                                              |
+| `ignore_complexity`      | Ignore complexity threshold and show all functions.                                               |
+| `output_csv`             | Generate results in a CSV file.                                                                   |
+| `output_json`            | Generate results in a JSON file.                                                                  |
+| `details`                | Output detail level (`low` or `normal`).                                                          |
+| `quiet`                  | Suppress console output.                                                                          |
+| `sort`                   | Sort results by complexity (`asc`, `desc`, or `name`).                                            |
 
 ## Examples
 
