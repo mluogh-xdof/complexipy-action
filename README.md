@@ -18,7 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Check Python Code Complexity
-      uses: rohaquinlop/complexipy-action@v3
+      uses: rohaquinlop/complexipy-action@v4
 ```
 
 ## Inputs
@@ -40,13 +40,13 @@ jobs:
 This will look at the pyproject.toml or complexipy.toml, etc.
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v3
+- uses: rohaquinlop/complexipy-action@v4
 ```
 
 ### Ignore Complexity Threshold
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v3
+- uses: rohaquinlop/complexipy-action@v4
   with:
     paths: './src'
     ignore_complexity: true
@@ -55,7 +55,7 @@ This will look at the pyproject.toml or complexipy.toml, etc.
 ### Generate CSV Report
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v3
+- uses: rohaquinlop/complexipy-action@v4
   with:
     paths: '.'
     output_csv: true
@@ -63,7 +63,7 @@ This will look at the pyproject.toml or complexipy.toml, etc.
 
 ### Generate JSON Report
 ```yaml
-- uses: rohaquinlop/complexipy-action@v3
+- uses: rohaquinlop/complexipy-action@v4
   with:
     paths: '.'
     output_json: true
@@ -72,7 +72,7 @@ This will look at the pyproject.toml or complexipy.toml, etc.
 ### Analyze Specific Directory with Low Detail Output
 
 ```yaml
-- uses: rohaquinlop/complexipy-action@v3
+- uses: rohaquinlop/complexipy-action@v4
   with:
     paths: './src/python'
     details: 'low'
