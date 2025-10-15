@@ -1,5 +1,9 @@
 #!/bin/sh -l
 
+if [ $# -eq 0 ]; then
+    exec complexipy
+fi
+
 files=$(echo $1 | tr '\n' ' ')
 
 ignore_complexity=""
