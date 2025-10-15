@@ -1,43 +1,36 @@
 #!/bin/sh -l
 
-if [ $# -eq 0 ]; then
-    exec complexipy
+# Build command arguments
+set --
+
+# Add paths if provided
+if [ -n "$PATHS" ]; then
+    for path in $PATHS; do
+        set -- "$@" "$path"
+    done
 fi
 
-files=$(echo $1 | tr '\n' ' ')
-
-ignore_complexity=""
-if [ "$2" = "true" ]; then
-    ignore_complexity="-i"
+# Add exclude paths if provided
+if [ -n "$EXCLUDE" ]; then
+    for exclude_path in $EXCLUDE; do
+        set -- "$@" "-e" "$exclude_path"
+    done
 fi
 
-output_csv=""
-if [ "$3" = "true" ]; then
-    output_csv="-c"
-fi
+# Add max complexity if provided
+[ -n "$MAX_COMPLEXITY" ] && set -- "$@" "-mx" "$MAX_COMPLEXITY"
 
-output_json=""
-if [ "$4" = "true" ]; then
-    output_json="-j"
-fi
+# Add boolean flags if true
+[ "$IGNORE_COMPLEXITY" = "true" ] && set -- "$@" "-i"
+[ "$OUTPUT_CSV" = "true" ] && set -- "$@" "-c"
+[ "$OUTPUT_JSON" = "true" ] && set -- "$@" "-j"
+[ "$QUIET" = "true" ] && set -- "$@" "-q"
 
-details="-d normal"
-if [ "$5" = "low" ]; then
-    details="-d low"
-fi
+# Add details if provided
+[ -n "$DETAILS" ] && set -- "$@" "-d" "$DETAILS"
 
-quiet=""
-if [ "$6" = "true" ]; then
-    quiet="-q"
-fi
+# Add sort if provided
+[ -n "$SORT" ] && set -- "$@" "-s" "$SORT"
 
-sort=""
-if [ "$7" = "asc" ]; then
-    sort="-s asc"
-elif [ "$7" = "desc" ]; then
-    sort="-s desc"
-elif [ "$7" = "name" ]; then
-    sort="-s name"
-fi
-
-complexipy $files $ignore_complexity $output_csv $output_json $details $quiet $sort
+# Execute complexipy
+exec complexipy "$@"
