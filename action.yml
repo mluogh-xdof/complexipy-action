@@ -1,47 +1,46 @@
 name: complexipy
 description: Calculate the cognitive complexity of Python files, written in Rust.
-
 inputs:
   paths:
     description: Paths to analyze (optional). Can be local paths or a git repository URL.
     required: false
-  output_csv:
-    description: Generate results in a CSV file.
+  exclude:
+    description: Paths to the directories or files to exclude.
     required: false
-    default: 'false'
-  output_json:
-    description: Generate results in a JSON file.
+  max_complexity_allowed:
+    description: Max complexity allowed per function.
     required: false
-    default: 'false'
   ignore_complexity:
     description: Ignore complexity threshold and show all functions.
     required: false
-    default: 'false'
+  output_csv:
+    description: Generate results in a CSV file.
+    required: false
+  output_json:
+    description: Generate results in a JSON file.
+    required: false
   details:
     description: Output detail level (`low` or `normal`).
     required: false
-    default: "normal"
   quiet:
     description: Suppress console output.
     required: false
-    default: 'false'
   sort:
     description: Sort results by complexity (`asc`, `desc`, or `name`).
     required: false
-    default: "asc"
-
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.paths }}
-    - ${{ inputs.ignore_complexity }}
-    - ${{ inputs.output_csv }}
-    - ${{ inputs.output_json }}
-    - ${{ inputs.details }}
-    - ${{ inputs.quiet }}
-    - ${{ inputs.sort }}
-
+  env:
+    PATHS: ${{ inputs.paths }}
+    EXCLUDE: ${{ inputs.exclude }}
+    MAX_COMPLEXITY: ${{ inputs.max_complexity_allowed }}
+    IGNORE_COMPLEXITY: ${{ inputs.ignore_complexity }}
+    OUTPUT_CSV: ${{ inputs.output_csv }}
+    OUTPUT_JSON: ${{ inputs.output_json }}
+    DETAILS: ${{ inputs.details }}
+    QUIET: ${{ inputs.quiet }}
+    SORT: ${{ inputs.sort }}
 branding:
   icon: "check-circle"
   color: "purple"
