@@ -19,9 +19,6 @@ jobs:
     - uses: actions/checkout@v4
     - name: Check Python Code Complexity
       uses: rohaquinlop/complexipy-action@v3
-      with:
-        paths: '.'  # Analyze the entire repository
-        ignore_complexity: false # Set to true to ignore complexity checks
 ```
 
 ## Inputs
@@ -40,10 +37,10 @@ jobs:
 
 ### Basic Usage
 
+This will look at the pyproject.toml or complexipy.toml, etc.
+
 ```yaml
 - uses: rohaquinlop/complexipy-action@v3
-  with:
-    paths: '.'
 ```
 
 ### Ignore Complexity Threshold
