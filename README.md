@@ -25,7 +25,7 @@ jobs:
 
 | Input               | Description                                                                                                                      | Required | Default                   |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------------- | -------- | ------------------------- |
-| `paths`             | Paths to analyze. Can be local paths or a git repository URL.                                                                    | Yes      | `${{ github.workspace }}` |
+| `paths`             | Paths to analyze. Can be local paths or a git repository URL.                                                                    | No      | `""` |
 | `ignore_complexity` | Ignore complexity threshold and show all functions. By default, complexipy will fail if a function exceeds a certain complexity. | No       | `false`                   |
 | `output_csv`        | Generate results in a CSV file.                                                                                                  | No       | `false`                   |
 | `output_json`       | Generate results in a JSON file.                                                                                                 | No       | `false`                   |
